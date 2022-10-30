@@ -1,8 +1,11 @@
+import Layout from "../../components/layout"
+
 const Test = () => {
 	return (
-		<div>
-			<h1>TEST</h1>
-		</div>
+		<Layout>
+      <h1>test</h1>
+      <h2>aloaloalo</h2>
+    </Layout>
 	)
 }
 

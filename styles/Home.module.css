@@ -1,5 +1,6 @@
-.container {
-  padding: 0 2rem;
+.header {
+  min-height: 80px;
+  background-color: var(--header-background);
 }
 
 .main {
