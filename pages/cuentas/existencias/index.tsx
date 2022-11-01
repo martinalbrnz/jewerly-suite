@@ -1,8 +1,8 @@
 const Existencias = () => {
   return (
-    <div>
+    <>
       <h1>Existencias</h1>
-    </div>
+    </>
   )
 }
 

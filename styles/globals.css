@@ -19,6 +19,8 @@ a {
 
 :root {
   --header-background: #2020ff;
+  --nav-background: #4040ff;
+  --nav-background-hover: #4545ff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -28,5 +30,10 @@ a {
   body {
     color: white;
     background: black;
+  }
+  :root {
+    --header-background: #375237;
+    --nav-background: #375650;
+    --nav-background-hover: #395860;
   }
 }

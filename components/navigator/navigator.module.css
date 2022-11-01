@@ -1,0 +1,31 @@
+.navigationDrawer {
+  position: fixed;
+  height: 100%;
+  display: flex;
+  gap: 2px;
+  flex-direction: column;
+  width: 64px;
+  padding-top: 50px;
+  background-color: var(--nav-background);
+}
+
+.menu {
+  z-index: 300;
+}
+
+.navItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 64px;
+}
+
+.navItem:hover .icon,
+.navItem:hover {
+  background-color: var(--nav-background-hover);
+  transform: scale(.97);
+}
+
+.icon {
+  font-size: 48px;
+}
