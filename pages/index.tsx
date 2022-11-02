@@ -10,11 +10,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <footer className={styles.footer}>
-        <h3>coso</h3>
-        <h3>coso</h3>
-        <h3>coso</h3>
-      </footer>
+      <h2>Página de inicio</h2>
     </>
   )
 }

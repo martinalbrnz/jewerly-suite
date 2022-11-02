@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 
 import Header from "../header";
 import Navigator from "../navigator";
@@ -9,10 +10,14 @@ export interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const toggleMenuOpen = (): void => {
+    setMenuIsOpen(!menuIsOpen);
+  };
   return (
     <>
-      <Header />
-      <Navigator />
+      <Header menuIsOpen={menuIsOpen} toggleMenuOpen={toggleMenuOpen} />
+      <Navigator menuIsOpen={menuIsOpen} />
       <main className={styles.main}>{children}</main>
     </>
   );

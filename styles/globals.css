@@ -18,7 +18,9 @@ a {
 }
 
 :root {
+  --background: #090909;
   --header-background: #2020ff;
+  --header-background-hover: #4545ff;
   --nav-background: #4040ff;
   --nav-background-hover: #4545ff;
 }
@@ -29,11 +31,13 @@ a {
   }
   body {
     color: white;
-    background: black;
+    background: var(--background);
   }
   :root {
-    --header-background: #375237;
-    --nav-background: #375650;
-    --nav-background-hover: #395860;
+    --backgroung: #000a12;
+    --header-background: #1a237e;
+    --header-background-hover: #2a338e;
+    --nav-background: #4f83cc;
+    --nav-background-hover: #5f93dc;
   }
 }

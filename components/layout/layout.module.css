@@ -1,4 +1,8 @@
+.bodyContainer {
+  display: flex;
+
+}
+
 .main {
-  border: 2px solid red;
-  margin-left: 64px;
+  padding: 5rem 1.5rem 2rem;
 }
