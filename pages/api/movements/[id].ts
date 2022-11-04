@@ -19,7 +19,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 const getMovementById = async (req: NextApiRequest, res: NextApiResponse<ApiResponse>) => {
   try {
     await dbConnect();
-    const data = await Movement.findById(req.query.id);
+    const data = await Movement
+      .findById(req.query.id)
+      .populate('account', { _id: 0, name: 1 });
 
     if (data.length === 0) {
       return res
@@ -64,7 +66,9 @@ const editMovement = async (req: NextApiRequest, res: NextApiResponse<ApiRespons
     }
 
     await dbConnect();
-    const updatedMovement = await Movement.findByIdAndUpdate(id, req.body, { new: true });
+    const updatedMovement = await Movement
+      .findByIdAndUpdate(id, req.body, { new: true })
+      .populate('account', { _id: 0, name: 1 });
 
     if (!updatedMovement) {
       return res

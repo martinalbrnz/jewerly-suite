@@ -8,11 +8,11 @@ const movementSchema = new Schema({
   amount: {
     type: Number,
     required: true,
-
   },
   account: {
-    type: Number,
-    required: true,
+    type: Schema.Types.ObjectId,
+    ref: 'Account',
+    required: true
   },
   description: {
     type: String,

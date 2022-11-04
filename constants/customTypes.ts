@@ -8,7 +8,12 @@ export interface Movement {
 	_id: string;
 	date: Date;
 	amount: number;
-	account: number;
+	account: Account;
 	description: string;
 	isDeleted: boolean;
+}
+
+export interface Account {
+	_id: string;
+	name: string;
 }

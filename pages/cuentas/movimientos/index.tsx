@@ -1,16 +1,22 @@
 import { useState, useEffect } from "react";
 import { Movement } from "../../../constants/customTypes";
-import { ListItem, ListItemProps } from "../../../components/shared/ListItem";
+import { ListItem } from "../../../components/shared/ListItem";
 import styles from './movimientos.module.css';
 
 const Movimientos = () => {
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<any[]>([]);
+  const [totalAmount, setTotalAmount] = useState<number>(0);
 
   useEffect(() => {
+    fetch("/api/movements/total")
+      .then(res => res.json()) 
+      .then(res => setTotalAmount(res.data))
+      .catch(e => console.error(e));
+
     fetch("/api/movements")
       .then((res) => res.json())
       .then((res) => setData(res.data))
-      .catch((error) => error);
+      .catch((e) => console.error(e));
   }, []);
   return (
     <>
@@ -21,12 +27,15 @@ const Movimientos = () => {
             <ListItem
               key={item._id}
               headline={item.description}
-              line1={item.account.toString()}
+              line1={item.account.name.toUpperCase()}
               line2={new Intl.DateTimeFormat("es").format(new Date(item?.date))}
               trailing={`\$ ${item.amount.toFixed(2)}`}
             />
           );
         })}
+      </div>
+      <div className={styles.totalContainer}>
+        <p className={styles.totalAmount}>{`\$ ${totalAmount.toFixed(2)}`}</p>
       </div>
     </>
   );
