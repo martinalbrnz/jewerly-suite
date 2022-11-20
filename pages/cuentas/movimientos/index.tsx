@@ -31,7 +31,7 @@ const Movimientos = () => {
   }, [page, take]);
 
   useEffect(() => {
-    fetch("api/movements/total")
+    fetch("/api/movements/total")
       .then((res) => res.json())
       .then((res) => setTotal(res.data))
       .catch((e) => console.error(e));
