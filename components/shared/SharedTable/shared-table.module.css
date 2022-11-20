@@ -5,8 +5,8 @@
 }
 
 .table thead th {
-
   background-color: var(--primary);
+  color: var(--text-primary);
 }
 
 .table thead th:first-child {
@@ -39,6 +39,7 @@
 .table tfoot {
   font-weight: 600;
   background-color: var(--primary);
+  color: var(--text-primary);
 }
 
 .table tfoot td:first-child {

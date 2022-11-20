@@ -1,5 +1,4 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { MdMaximize } from "react-icons/md";
 
 import { ApiResponse } from "../../../constants/customTypes";
 import dbConnect from "../../../lib/db";
@@ -55,10 +54,7 @@ const getMovements = async (req: NextApiRequest, res: NextApiResponse) => {
 
 const addMovement = async (req: NextApiRequest, res: NextApiResponse<ApiResponse>) => {
   try {
-    console.log('Connecting to mongodb');
-    await dbConnect();
-    console.log('Connected to mongodb');
-
+    console.log(req.body)
     const movement = new Movement({
       date: req.body.date,
       amount: req.body.amount,
@@ -66,7 +62,7 @@ const addMovement = async (req: NextApiRequest, res: NextApiResponse<ApiResponse
       description: req.body.description,
       isDeleted: req.body.isDeleted
     });
-    console.log(movement);
+    // console.log(movement);
     const data = await movement.save();
 
     return res

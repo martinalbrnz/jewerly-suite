@@ -5,6 +5,17 @@
   z-index: 100;
 }
 
+.movementsBody {
+  display: flex;
+  gap: 12px;
+}
+
+.tableContainer {
+  display: flex;
+  flex-direction: column;
+  min-width: 60%;
+}
+
 .paginator {
   display: flex;
   gap: 12px;
