@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { MdArrowBack } from "react-icons/md";
+import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
 import SharedTable from "../../../components/shared/SharedTable";
 import { Movement } from "../../../constants/customTypes";
@@ -8,20 +8,41 @@ import styles from "./movimientos.module.css";
 
 const Movimientos = () => {
   const [movements, setMovements] = useState<Movement[]>([]);
+  const [page, setPage] = useState<number>(1);
+  const [maxPage, setMaxPage] = useState<number>(3);
+  const [take, setTake] = useState<number>(10);
+  const [total, setTotal] = useState<any>(0);
+
+  const nextPage = () => {
+    if (page < maxPage) setPage(page + 1);
+  };
+  const prevPage = () => {
+    if (page > 1) setPage(page - 1);
+  };
 
   useEffect(() => {
-    fetch("/api/movements")
+    fetch(`/api/movements?page=${page}&take=${take}`)
       .then((res) => res.json())
-      .then((res) => setMovements(res.data))
+      .then((res) => {
+        setMovements(res.data);
+        setMaxPage(Math.floor((res.max - 1) / take + 1));
+      })
+      .catch((e) => console.error(e));
+  }, [page, take]);
+
+  useEffect(() => {
+    fetch("api/movements/total")
+      .then((res) => res.json())
+      .then((res) => setTotal(res.data))
       .catch((e) => console.error(e));
   }, []);
   return (
     <>
-      <div>
+      <div className={styles.sectionTitle}>
         <Link href="/cuentas" className={styles.navItem}>
           <MdArrowBack className={styles.icon} />
         </Link>
-        <h1>Movimientos</h1>
+        <h2>Movimientos</h2>
       </div>
       <div className={styles.tableContainer}></div>
       <SharedTable>
@@ -47,7 +68,28 @@ const Movimientos = () => {
             );
           })}
         </tbody>
+        <tfoot>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>$ {total.toFixed(2)}</td>
+            <td></td>
+          </tr>
+        </tfoot>
       </SharedTable>
+      <div className={styles.paginator}>
+        {page > 1 ? (
+          <MdArrowBack onClick={prevPage} className={styles.icon} />
+        ) : (
+          <MdArrowBack className={styles.iconDisabled} />
+        )}
+        Página {page}
+        {page < maxPage ? (
+          <MdArrowForward onClick={nextPage} className={styles.icon} />
+        ) : (
+          <MdArrowForward className={styles.iconDisabled} />
+        )}
+      </div>
     </>
   );
 };

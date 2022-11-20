@@ -3,14 +3,14 @@
   display: flex;
   gap: 2px;
   flex-direction: column;
-  padding-top: 4rem;
+  margin-top: 4rem;
   background-color: var(--primary);
   color: var(--text-primary);
+  z-index: 600;
 }
 
-
 .menu {
-  z-index: 300;
+  z-index: 600;
 }
 
 .navItem {

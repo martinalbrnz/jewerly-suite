@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import { MdMaximize } from "react-icons/md";
 
 import { ApiResponse } from "../../../constants/customTypes";
 import dbConnect from "../../../lib/db";
@@ -7,7 +8,6 @@ import Movement from "../../../models/movement";
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   await dbConnect();
   if (req.method === 'GET') {
-
     return await getMovements(req, res);
   }
   if (req.method === 'POST') {
@@ -17,7 +17,12 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
 const getMovements = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const data = await Movement.find({ isDeleted: { $ne: true } }).populate('account', { _id: 0, name: 1 });
+    const data = await Movement
+      .find({ isDeleted: { $ne: true } })
+      .skip((Number(req.query.page) - 1) * Number(req.query.take))
+      .limit(Number(req.query.take))
+      .populate('account', { _id: 0, name: 1 });
+    const max = await Movement.countDocuments();
 
     if (data.length === 0) {
       return res
@@ -33,7 +38,8 @@ const getMovements = async (req: NextApiRequest, res: NextApiResponse) => {
       .status(200)
       .json({
         msg: 'Fetched data',
-        data: data,
+        data,
+        max, 
         error: false
       });
   } catch (error) {

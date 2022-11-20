@@ -20,7 +20,7 @@ const Header = ({ toggleMenuOpen, menuIsOpen }: HeaderProps) => {
           className={`${styles.icon} ${styles.menu}`}
         />
       )}
-      <h1>Header genérico</h1>
+      <h1>Suite</h1>
     </header>
   );
 };
