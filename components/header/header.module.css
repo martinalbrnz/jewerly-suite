@@ -7,7 +7,7 @@
   height: 4rem;
   width: 100%;
   padding: 0 8px;
-  background-color: var(--header-background);
+  background-color: var(--primary);
 }
 
 .icon {
@@ -17,5 +17,5 @@
 }
 
 .icon:hover {
-  background-color: var(--header-background-hover);
+  background-color: var(--primary-variant);
 }

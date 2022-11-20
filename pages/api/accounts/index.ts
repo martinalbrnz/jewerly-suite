@@ -5,6 +5,7 @@ import dbConnect from "../../../lib/db";
 import Account from "../../../models/account";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+  await dbConnect();
   if (req.method === 'GET') {
     return getAccounts(req, res);
   }
@@ -13,9 +14,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 }
 
-const getAccounts = async (req: NextApiRequest, res: NextApiResponse<ApiResponse>) => {
+const getAccounts = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    await dbConnect();
     const data = await Account.find();
 
     if (data.length === 0) {
@@ -48,10 +48,6 @@ const getAccounts = async (req: NextApiRequest, res: NextApiResponse<ApiResponse
 
 const addAccount = async (req: NextApiRequest, res: NextApiResponse<ApiResponse>) => {
   try {
-    console.log('Connecting to mongodb');
-    await dbConnect();
-    console.log('Connected to mongodb');
-
     const account = new Account({
       name: req.body.name,
     });

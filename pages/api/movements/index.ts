@@ -5,7 +5,9 @@ import dbConnect from "../../../lib/db";
 import Movement from "../../../models/movement";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+  await dbConnect();
   if (req.method === 'GET') {
+
     return await getMovements(req, res);
   }
   if (req.method === 'POST') {
@@ -15,8 +17,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
 const getMovements = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    await dbConnect();
-    const data = await Movement.find().populate('account', { _id: 0, name: 1 });
+    const data = await Movement.find({ isDeleted: { $ne: true } }).populate('account', { _id: 0, name: 1 });
 
     if (data.length === 0) {
       return res

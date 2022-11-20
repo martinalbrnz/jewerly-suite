@@ -19,10 +19,6 @@ const Navigator = ({menuIsOpen}: NavigatorProps) => {
           <MdHome className={styles.icon} />
           <p className={styles.iconTag}>Inicio</p>
         </Link>
-        <Link href="/test" className={styles.navItem}>
-          <MdWarning className={styles.icon} />
-          <p className={styles.iconTag}>Test</p>
-        </Link>
         <Link href="/cuentas" className={styles.navItem}>
           <MdArticle className={styles.icon} />
           <p className={styles.iconTag}>Cuentas</p>

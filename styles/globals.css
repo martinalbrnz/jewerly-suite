@@ -18,26 +18,23 @@ a {
 }
 
 :root {
-  --background: #090909;
-  --header-background: #2020ff;
-  --header-background-hover: #4545ff;
-  --nav-background: #4040ff;
-  --nav-background-hover: #4545ff;
+  --primary: #c2956e;
+  --primary-variant: #b88b64;
+  --text-primary: #fcfaf8;
+  --secondary: #fcfaf8;
+  --secondary-variant: #f2f0ee;
+  --text-secondary: #080604;
+  
+  --list-odd: #f9f7f5;
+  --list-even: #d9d7d5;
+  --list-hover: #e9e7e5;
+  --list-text: #282624;
+
+  --shadow: #0002;
 }
 
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: var(--background);
-  }
-  :root {
-    --backgroung: #000a12;
-    --header-background: #1a237e;
-    --header-background-hover: #2a338e;
-    --nav-background: #4f83cc;
-    --nav-background-hover: #5f93dc;
   }
 }

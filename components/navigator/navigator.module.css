@@ -1,12 +1,11 @@
 .navigationDrawer {
   position: fixed;
-  /* height: 100%; */
   display: flex;
   gap: 2px;
   flex-direction: column;
-  /* width: 200px; */
   padding-top: 4rem;
-  background-color: var(--nav-background);
+  background-color: var(--primary);
+  color: var(--text-primary);
 }
 
 
@@ -24,12 +23,12 @@
 }
 
 .navItem:not(:last-child) {
-  box-shadow: 0 1px 0 1px #00000033;
+  box-shadow: 0 1px 0 1px var(--shadow);
 }
 
 .navItem:hover .icon,
 .navItem:hover {
-  background-color: var(--nav-background-hover);
+  background-color: var(--primary-variant);
   transform: scale(.98);
 }
 
