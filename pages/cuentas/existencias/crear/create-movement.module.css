@@ -1,0 +1,30 @@
+.sectionContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sectionHeader {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  margin-bottom: 8px;
+}
+
+.icon,
+.iconDisabled {
+  transform: scale(2);
+  transition: .2s;
+}
+
+.icon:active,
+.icon:hover {
+  transform: scale(1.9);
+  background-color: var(--shadow);
+  border-radius: 50%;
+}

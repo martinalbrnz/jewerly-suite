@@ -13,7 +13,7 @@
   align-items: center;
 }
 
-.newMovement {
+.newAccount {
   background-color: var(--action);
   color: var(--text-primary);
   box-shadow: 0 0 20px var(--shadow);
@@ -23,44 +23,8 @@
   transition: .2s;
 }
 
-.newMovement:hover {
+.newAccount:hover {
   background-color: var(--action-hover);
-}
-
-.tableContainer {
-  display: flex;
-  flex-direction: column;
-  min-width: 60%;
-}
-
-.dateColumn {
-  width: 100px;
-}
-
-.accountColumn {
-  width: 140px;
-}
-
-.amountColumn {
-  width: 120px;
-}
-
-.amountAlign {
-  display: flex;
-  justify-content: space-between;
-}
-
-.descriptionColumn {
-  min-width: 120px;
-}
-
-.paginator {
-  display: flex;
-  gap: 12px;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  margin: 8px 0;
 }
 
 .icon,

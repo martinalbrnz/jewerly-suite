@@ -5,9 +5,9 @@ interface SharedTableProps {
 }
 const SharedTable = ({ children }: SharedTableProps) => {
   return (
-    <table className={styles.table}>
-      {children}
-    </table>
+    <div className={styles.tableContainer}>
+      <table className={styles.table}>{children}</table>
+    </div>
   );
 };
 

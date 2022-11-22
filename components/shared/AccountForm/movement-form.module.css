@@ -1,3 +1,24 @@
+.sectionHeader {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  margin-bottom: 8px;
+}
+
+.icon,
+.iconDisabled {
+  transform: scale(2);
+  cursor: pointer;
+}
+
+.icon:active, .icon:hover {
+  transform: scale(1.9);
+  background-color: var(--shadow);
+  border-radius: 50%;
+}
+
 .formContainer {
   display: flex;
   justify-content: center;
@@ -30,15 +51,16 @@
 
 .submitButton {
   margin-top: 12px;
+  cursor: pointer;
   font-weight: 600;
   padding: 8px;
   color: var(--text-primary);
   text-align: center;
-  background-color: var(--primary);
+  background-color: var(--action);
   border-radius: 4px;
   transition: .2s;
 }
 
 .submitButton:hover {
-  background-color: var(--primary-variant);
+  background-color: var(--action-hover);
 }

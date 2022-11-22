@@ -1,5 +1,8 @@
+import Link from "next/link";
 import { useEffect, useState } from "react";
+import { MdArrowBack } from "react-icons/md";
 import SharedTable from "../../../components/shared/SharedTable";
+import styles from './existencias.module.css';
 
 interface AccountAmount {
   _id: string;
@@ -25,7 +28,17 @@ const Existencias = () => {
   }, []);
   return (
     <>
-      <h2>Cuentas</h2>
+      <div className={styles.sectionHeader}>
+        <div className={styles.sectionTitle}>
+          <Link href="/cuentas">
+            <MdArrowBack className={styles.icon} />
+          </Link>
+          <h2>Existencias</h2>
+        </div>
+        <Link href="/cuentas/existencias/crear" className={styles.newAccount}>
+          NUEVA CUENTA
+        </Link>
+      </div>
       <SharedTable>
         <thead>
           <tr>

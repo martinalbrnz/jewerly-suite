@@ -1,18 +1,18 @@
 import Link from "next/link";
 import { MdArrowBack } from "react-icons/md";
-import MovementForm from "../../../../components/shared/MovementForm";
+import AccountForm from "../../../../components/shared/AccountForm";
 import styles from "./create-movement.module.css";
 
 const CreateMovement = () => {
   return (
     <div className={styles.sectionContainer}>
       <div className={styles.sectionHeader}>
-        <Link href="/cuentas/movimientos">
+        <Link href="/cuentas/existencias">
           <MdArrowBack className={styles.icon} />
         </Link>
-        <h2>Nuevo movimiento</h2>
+        <h2>Nueva cuenta</h2>
       </div>
-      <MovementForm />
+      <AccountForm />
     </div>
   );
 };
