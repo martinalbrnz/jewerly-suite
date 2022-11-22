@@ -10,7 +10,7 @@ const CreateMovement = () => {
         <Link href="/cuentas/movimientos">
           <MdArrowBack className={styles.icon} />
         </Link>
-        <h2>Nuevo movimiento</h2>
+        <h2 className={styles.sectionTitle}>Nuevo movimiento</h2>
       </div>
       <MovementForm />
     </div>

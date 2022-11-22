@@ -10,7 +10,7 @@ const CreateMovement = () => {
         <Link href="/cuentas/existencias">
           <MdArrowBack className={styles.icon} />
         </Link>
-        <h2>Nueva cuenta</h2>
+        <h2 className={styles.sectionTitle}>Nueva cuenta</h2>
       </div>
       <AccountForm />
     </div>

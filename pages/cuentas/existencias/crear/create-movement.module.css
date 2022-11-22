@@ -7,6 +7,10 @@
   justify-content: center;
 }
 
+.sectionTitle {
+	color: var(--primary);
+}
+
 .sectionHeader {
   display: flex;
   gap: 12px;
@@ -20,6 +24,7 @@
 .iconDisabled {
   transform: scale(2);
   transition: .2s;
+  color: var(--primary);
 }
 
 .icon:active,

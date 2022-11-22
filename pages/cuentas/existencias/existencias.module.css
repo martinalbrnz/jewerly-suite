@@ -8,6 +8,10 @@
 }
 
 .sectionTitle {
+	color: var(--primary);
+}
+
+.sectionTitle {
   display: flex;
   gap: 16px;
   align-items: center;

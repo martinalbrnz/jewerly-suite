@@ -25,7 +25,7 @@ a {
   --text-primary: #fcfaf8;
   --secondary: #fcfaf8;
   --secondary-variant: #f2f0ee;
-  --text-secondary: #080604;
+  --text-secondary: #c2956e;
   
   --action: #95c26e;
   --action-hover: #85b25e;
@@ -38,7 +38,7 @@ a {
   --list-odd: #fbf7f3;
   --list-even: #dbd7d3;
   --list-hover: #e9e7e5;
-  --list-text: #2a2622;
+  --list-text: #c2956e;
 
   --shadow: #0002;
 }

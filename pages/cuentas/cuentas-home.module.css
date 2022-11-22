@@ -1,0 +1,48 @@
+.sectionContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	align-items: center;
+	justify-content: center;
+}
+
+.sectionTitle {
+	color: var(--primary);
+}
+
+.subSectionsContainer {
+	display: flex;
+	gap: 20px;
+	flex-wrap: wrap;
+}
+
+.subSection {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	border-radius: 4px;
+	background-color: var(--secondary);
+	border: 1px solid var(--primary);
+	color: var(--primary);
+	width: 200px;
+	height: 200px;
+}
+
+.subSection:hover {
+	background-color: var(--secondary-variant);
+}
+
+.hide {
+	display: none;
+}
+
+.hide li {
+	font-size: .8rem;
+}
+
+.subSection:hover .hide {
+	display: flex;
+}

@@ -43,7 +43,7 @@ const Movimientos = () => {
           <Link href="/cuentas">
             <MdArrowBack className={styles.icon} />
           </Link>
-          <h2>Movimientos</h2>
+          <h2 className={styles.sectionTitle}>Movimientos</h2>
         </div>
         <Link href="/cuentas/movimientos/crear" className={styles.newMovement}>
           NUEVO MOVIMIENTO

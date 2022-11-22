@@ -33,7 +33,7 @@ const Existencias = () => {
           <Link href="/cuentas">
             <MdArrowBack className={styles.icon} />
           </Link>
-          <h2>Existencias</h2>
+          <h2 className={styles.sectionTitle}>Existencias</h2>
         </div>
         <Link href="/cuentas/existencias/crear" className={styles.newAccount}>
           NUEVA CUENTA

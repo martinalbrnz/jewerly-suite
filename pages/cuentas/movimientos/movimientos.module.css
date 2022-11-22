@@ -8,6 +8,10 @@
 }
 
 .sectionTitle {
+	color: var(--primary);
+}
+
+.sectionTitle {
   display: flex;
   gap: 16px;
   align-items: center;
@@ -60,6 +64,7 @@
   width: 100%;
   justify-content: center;
   align-items: center;
+  color: var(--primary);
   margin: 8px 0;
 }
 
