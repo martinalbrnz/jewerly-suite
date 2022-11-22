@@ -18,6 +18,8 @@ a {
 }
 
 :root {
+  --header-height: 4rem;
+
   --primary: #c2956e;
   --primary-variant: #b88b64;
   --text-primary: #fcfaf8;
@@ -25,10 +27,18 @@ a {
   --secondary-variant: #f2f0ee;
   --text-secondary: #080604;
   
-  --list-odd: #f9f7f5;
-  --list-even: #d9d7d5;
+  --action: #95c26e;
+  --action-hover: #85b25e;
+  --text-action: #fcfaf8;
+
+  --danger: #c26e95; /* idk... */
+  --danger-hover: #b25e85;
+  --text-danger: #fcfaf8;
+  
+  --list-odd: #fbf7f3;
+  --list-even: #dbd7d3;
   --list-hover: #e9e7e5;
-  --list-text: #282624;
+  --list-text: #2a2622;
 
   --shadow: #0002;
 }

@@ -1,19 +1,52 @@
-.sectionTitle {
+.sectionHeader {
   display: flex;
+  justify-content: space-between;
   gap: 12px;
   align-items: center;
   z-index: 100;
+  margin-bottom: 8px;
 }
 
-.movementsBody {
+.sectionTitle {
   display: flex;
-  gap: 12px;
+  gap: 16px;
+  align-items: center;
+}
+
+.newMovement {
+  background-color: var(--action);
+  color: var(--text-primary);
+  box-shadow: 0 0 20px var(--shadow);
+  border-radius: 4px;
+  padding: 8px;
+  font-weight: 500;
 }
 
 .tableContainer {
   display: flex;
   flex-direction: column;
   min-width: 60%;
+}
+
+.dateColumn {
+  width: 100px;
+}
+
+.accountColumn {
+  width: 140px;
+}
+
+.amountColumn {
+  width: 120px;
+}
+
+.amountAlign {
+  display: flex;
+  justify-content: space-between;
+}
+
+.descriptionColumn {
+  min-width: 120px;
 }
 
 .paginator {

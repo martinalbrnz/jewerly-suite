@@ -1,17 +1,12 @@
 import Link from "next/link";
-import {
-  MdArticle,
-  MdHome, MdWarning,
-  MdWork
-} from "react-icons/md";
+import { MdArticle, MdHome, MdWork } from "react-icons/md";
 import styles from "./navigator.module.css";
-
 
 export interface NavigatorProps {
   menuIsOpen: boolean;
 }
 
-const Navigator = ({menuIsOpen}: NavigatorProps) => {
+const Navigator = ({ menuIsOpen }: NavigatorProps) => {
   if (menuIsOpen) {
     return (
       <nav className={styles.navigationDrawer}>
@@ -30,7 +25,7 @@ const Navigator = ({menuIsOpen}: NavigatorProps) => {
       </nav>
     );
   } else {
-    return <></>
+    return <></>;
   }
 };
 

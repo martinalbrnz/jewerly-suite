@@ -1,4 +1,4 @@
-import { MdMenu, MdMenuOpen } from "react-icons/md";
+import { MdMenu, MdOutlineClose } from "react-icons/md";
 import styles from "./header.module.css";
 
 export interface HeaderProps {
@@ -10,7 +10,7 @@ const Header = ({ toggleMenuOpen, menuIsOpen }: HeaderProps) => {
   return (
     <header className={styles.header}>
       {menuIsOpen ? (
-        <MdMenuOpen
+        <MdOutlineClose
           onClick={() => toggleMenuOpen()}
           className={`${styles.icon} ${styles.menu}`}
         />

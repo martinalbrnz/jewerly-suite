@@ -3,10 +3,10 @@ import { Account, Movement } from "../../../../constants/customTypes";
 import styles from "./movement-form.module.css";
 
 const initialForm = {
-  account: '',
+  account: "",
   amount: 0,
-  description: '',
-}
+  description: "",
+};
 const MovementForm = () => {
   const [accounts, setAccounts] = useState<Account[]>([]);
   const [form, setForm] = useState<any>(initialForm);
@@ -28,11 +28,11 @@ const MovementForm = () => {
 
   const submitMovement = (e: any) => {
     e.preventDefault();
-    console.log(form)
+    console.log(form);
     fetch("/api/movements", {
       method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         date: new Date(form.date),
@@ -43,9 +43,9 @@ const MovementForm = () => {
     })
       .then((res) => res.json())
       .then((json) => {
-        console.log(json)
+        console.log(json);
         if (!json.error) {
-          setForm(initialForm)
+          setForm(initialForm);
         }
       })
       .catch((e) => console.error(e));
@@ -57,8 +57,8 @@ const MovementForm = () => {
           <label htmlFor="date">Fecha de movimiento:</label>
           <input onChange={handleChange} name="date" type="date" required />
           <label htmlFor="account">Cuenta:</label>
-          <select onChange={handleChange} name="account" id="account" required >
-            <option>--</option>
+          <select onChange={handleChange} name="account" id="account" required>
+            <option disabled selected>Nombre de cuenta</option>
             {accounts.map((acc) => {
               return (
                 <option key={acc._id} value={acc._id}>
@@ -68,10 +68,10 @@ const MovementForm = () => {
             })}
           </select>
           <label htmlFor="amount">Cantidad:</label>
-          <input type="number" onChange={handleChange} name="amount" required />
+          <input type="number" onChange={handleChange} name="amount" required placeholder="Ingrese una cantidad" />
           <label htmlFor="description">Descripción:</label>
-          <textarea onChange={handleChange} name="description" required />
-          <button onClick={submitMovement}>Guardar movimiento</button>
+          <textarea onChange={handleChange} name="description" required placeholder="Ingrese una descripción"/>
+          <p onClick={submitMovement} className={styles.submitButton} >GUARDAR</p>
         </form>
       </div>
     </>

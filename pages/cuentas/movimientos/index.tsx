@@ -39,66 +39,69 @@ const Movimientos = () => {
   }, []);
   return (
     <>
-      <div className={styles.sectionTitle}>
-        <Link href="/cuentas" className={styles.navItem}>
-          <MdArrowBack className={styles.icon} />
-        </Link>
-        <h2>Movimientos</h2>
-        <Link href="/cuentas/movimientos/crear" className={styles.navItem}>
-          <MdAdd className={styles.icon} />
+      <div className={styles.sectionHeader}>
+        <div className={styles.sectionTitle}>
+          <Link href="/cuentas">
+            <MdArrowBack className={styles.icon} />
+          </Link>
+          <h2>Movimientos</h2>
+        </div>
+        <Link href="/cuentas/movimientos/crear" className={styles.newMovement}>
+          NUEVO MOVIMIENTO
         </Link>
       </div>
-      <div className={styles.movementsBody}>
-        <div className={styles.tableContainer}>
-          <SharedTable>
-            <thead>
-              <tr>
-                <th>Fecha</th>
-                <th>Cuenta</th>
-                <th>Monto</th>
-                <th>Descripción</th>
-              </tr>
-            </thead>
-            <tbody>
-              {movements?.map((mov: Movement) => {
-                return (
-                  <tr key={mov._id}>
-                    <td>
-                      {new Intl.DateTimeFormat("es-AR").format(
-                        new Date(mov.date)
-                      )}
-                    </td>
-                    <td>{mov.account.name.toUpperCase()}</td>
-                    <td>$ {mov.amount.toFixed(2)}</td>
-                    <td>{mov.description}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-            <tfoot>
-              <tr>
-                <td></td>
-                <td></td>
-                <td>$ {total.toFixed(2)}</td>
-                <td></td>
-              </tr>
-            </tfoot>
-          </SharedTable>
-          <div className={styles.paginator}>
-            {page > 1 ? (
-              <MdArrowBack onClick={prevPage} className={styles.icon} />
-            ) : (
-              <MdArrowBack className={styles.iconDisabled} />
-            )}
-            Página {page}
-            {page < maxPage ? (
-              <MdArrowForward onClick={nextPage} className={styles.icon} />
-            ) : (
-              <MdArrowForward className={styles.iconDisabled} />
-            )}
-          </div>
+      <div className={styles.tableContainer}>
+        <SharedTable>
+          <thead>
+            <tr>
+              <th className={styles.dateColumn}>Fecha</th>
+              <th className={styles.accountColumn}>Cuenta</th>
+              <th className={styles.amountColumn}>Monto</th>
+              <th className={styles.descriptionColumn}>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            {movements?.map((mov: Movement) => {
+              return (
+                <tr key={mov._id}>
+                  <td>
+                    {new Intl.DateTimeFormat("es-AR").format(
+                      new Date(mov.date)
+                    )}
+                  </td>
+                  <td>{mov.account.name.toUpperCase()}</td>
+                  <td className={styles.amountAlign}>
+                    $ <span>{mov.amount.toFixed(2)}</span>
+                  </td>
+                  <td>{mov.description}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+          <tfoot>
+            <tr>
+              <td></td>
+              <td></td>
+              <td className={styles.amountAlign}>
+                    $ <span>{total.toFixed(2)}</span>
+                  </td>
+              <td></td>
+            </tr>
+          </tfoot>
+        </SharedTable>
+        <div className={styles.paginator}>
+          {page > 1 ? (
+            <MdArrowBack onClick={prevPage} className={styles.icon} />
+          ) : (
+            <MdArrowBack className={styles.iconDisabled} />
+          )}
+          Página {page}
+          {page < maxPage ? (
+            <MdArrowForward onClick={nextPage} className={styles.icon} />
+          ) : (
+            <MdArrowForward className={styles.iconDisabled} />
+          )}
         </div>
-        <MovementForm></MovementForm>
       </div>
     </>
   );

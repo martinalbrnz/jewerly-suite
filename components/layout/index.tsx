@@ -17,8 +17,10 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <>
       <Header menuIsOpen={menuIsOpen} toggleMenuOpen={toggleMenuOpen} />
-      <Navigator menuIsOpen={menuIsOpen} />
-      <main className={styles.main}>{children}</main>
+      <div className={styles.bodyContainer} >
+        <Navigator menuIsOpen={menuIsOpen} />
+        <main className={styles.main}>{children}</main>
+      </div>
     </>
   );
 };

@@ -56,7 +56,7 @@ const addMovement = async (req: NextApiRequest, res: NextApiResponse<ApiResponse
   try {
     console.log(req.body)
     const movement = new Movement({
-      date: req.body.date,
+      date: req.body.date ? new Date(req.body.date) : new Date(Date.now()),
       amount: req.body.amount,
       account: req.body.account,
       description: req.body.description,
